@@ -3,7 +3,8 @@ from .logger import setup_logging
 from .weather import get_weather
 import logging
 
-def main():
+
+def main() -> None:
     env = load_config()
     setup_logging()
     logging.info(f"Application démarrée en mode {env}")
@@ -15,6 +16,7 @@ def main():
     else:
         print("Impossible de récupérer la météo.")
     logging.info("Application terminée")
+
 
 if __name__ == "__main__":
     main()
