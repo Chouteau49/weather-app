@@ -4,8 +4,9 @@ import os
 
 def get_weather(city):
     """
-    Récupère et affiche la météo actuelle pour une ville donnée.
+    Récupère la météo actuelle pour une ville donnée.
     Utilise l'API wttr.in (sans clé API nécessaire).
+    Retourne un dict avec 'temp', 'description' ou None en cas d'erreur.
     """
     base_url = os.getenv('API_BASE_URL', 'https://wttr.in')
     url = f"{base_url}/{city}?format=j1"
@@ -18,10 +19,10 @@ def get_weather(city):
             temp = current_condition['temp_C']
             description = current_condition['weatherDesc'][0]['value']
             logging.info(f"Météo récupérée pour {city}")
-            print(f"Météo à {city} : {temp}°C, {description}")
+            return {'temp': temp, 'description': description}
         else:
             logging.error(f"Erreur API : {response.status_code}")
-            print(f"Erreur lors de la récupération des données : {response.status_code}")
+            return None
     except requests.RequestException as e:
         logging.error(f"Erreur réseau : {e}")
-        print(f"Erreur réseau : {e}")
+        return None

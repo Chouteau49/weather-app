@@ -9,7 +9,11 @@ def main():
     logging.info(f"Application démarrée en mode {env}")
 
     city = input("Entrez le nom de la ville : ")
-    get_weather(city)
+    weather = get_weather(city)
+    if weather:
+        print(f"Météo à {city} : {weather['temp']}°C, {weather['description']}")
+    else:
+        print("Impossible de récupérer la météo.")
     logging.info("Application terminée")
 
 if __name__ == "__main__":
