@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "weather-app"
+version = "0.1.0"
+description = "Application simple pour afficher la météo d'une ville"
+authors = ["Utilisateur <user@example.com>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.25.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
