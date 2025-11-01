@@ -12,9 +12,9 @@ def main() -> None:
     city = input("Entrez le nom de la ville : ")
     weather = get_weather(city)
     if weather:
-        print(f"Météo à {city} : {weather['temp']}°C, {weather['description']}")
+        logging.info(f"Météo à {city} : {weather['temp']}°C, {weather['description']}")
     else:
-        print("Impossible de récupérer la météo.")
+        logging.error("Impossible de récupérer la météo.")
     logging.info("Application terminée")
 
 
