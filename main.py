@@ -1,11 +1,18 @@
+import os
 import requests
+from dotenv import load_dotenv
+
+# Charger la configuration selon l'environnement
+env = os.getenv('ENV', 'dev')
+load_dotenv(f".env.{env}")
 
 def get_weather(city):
     """
     Récupère et affiche la météo actuelle pour une ville donnée.
     Utilise l'API wttr.in (sans clé API nécessaire).
     """
-    url = f"https://wttr.in/{city}?format=j1"
+    base_url = os.getenv('API_BASE_URL', 'https://wttr.in')
+    url = f"{base_url}/{city}?format=j1"
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
