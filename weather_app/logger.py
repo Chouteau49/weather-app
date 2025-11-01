@@ -45,7 +45,7 @@ def setup_logging() -> None:
         log_dir = Path("logs")
         log_dir.mkdir(exist_ok=True)
         file_handler = RotatingFileHandler(
-            log_dir / "app.log", maxBytes=5 * 1024 * 1024, backupCount=3
+            log_dir / "app.log", maxBytes=5 * 1024 * 1024, backupCount=3, encoding="utf-8"
         )
         file_handler.setFormatter(file_formatter)
         logger.addHandler(file_handler)
