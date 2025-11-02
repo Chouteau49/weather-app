@@ -116,5 +116,13 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+
 # Poetry
 poetry.lock
+
+# Vite / Vue.js / Node
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.env.local
+frontend/.env.*.local

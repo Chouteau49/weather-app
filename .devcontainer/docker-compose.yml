@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  container_name: poetry_python_devcontainer
+  devcontainer:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ..:/workspaces/poetry_python:cached
+    command: sleep infinity
+    environment:
+      - PYTHONUNBUFFERED=1
+      - NODE_ENV=development
+    ports:
+      - "8000:8000"
+      - "5173:5173"
+    networks:
+      - devnet
+
+networks:
+  devnet:
+    driver: bridge
